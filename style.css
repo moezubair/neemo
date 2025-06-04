@@ -173,8 +173,7 @@ body {
         grid-template-columns: 1fr 1fr;
         grid-template-areas: 
             "days hours"
-            "minutes minutes"
-            "seconds seconds";
+            "minutes seconds";
     }
     
     .time-unit:nth-child(1) { grid-area: days; }
@@ -182,7 +181,5 @@ body {
     .time-unit:nth-child(3) { grid-area: minutes; }
     .time-unit:nth-child(4) { 
         grid-area: seconds;
-        max-width: 200px;
-        margin: 0 auto;
     }
 }
