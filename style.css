@@ -103,6 +103,40 @@ body {
     50% { opacity: 0.8; }
 }
 
+@keyframes float {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-10vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.floating-heart {
+    position: fixed;
+    font-size: 20px;
+    color: rgba(255, 182, 193, 0.6);
+    pointer-events: none;
+    z-index: -1;
+    animation: float linear infinite;
+}
+
+.floating-heart:nth-child(odd) {
+    color: rgba(255, 105, 180, 0.5);
+}
+
+.floating-heart:nth-child(3n) {
+    color: rgba(255, 20, 147, 0.4);
+}
+
 .total-time {
     color: #666;
     font-size: 1rem;
@@ -129,6 +163,19 @@ body {
 
 @media (max-width: 400px) {
     .timer-display {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+            "days hours"
+            "minutes minutes"
+            "seconds seconds";
+    }
+    
+    .time-unit:nth-child(1) { grid-area: days; }
+    .time-unit:nth-child(2) { grid-area: hours; }
+    .time-unit:nth-child(3) { grid-area: minutes; }
+    .time-unit:nth-child(4) { 
+        grid-area: seconds;
+        max-width: 200px;
+        margin: 0 auto;
     }
 }

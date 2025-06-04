@@ -65,3 +65,30 @@ document.querySelectorAll('.time-unit').forEach(unit => {
         this.style.transform = 'translateY(0)';
     });
 });
+
+// Create floating hearts
+function createFloatingHeart() {
+    const heart = document.createElement('div');
+    heart.className = 'floating-heart';
+    heart.innerHTML = '💕';
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+    heart.style.fontSize = (Math.random() * 10 + 15) + 'px';
+    
+    document.body.appendChild(heart);
+    
+    // Remove heart after animation completes
+    setTimeout(() => {
+        if (heart.parentNode) {
+            heart.parentNode.removeChild(heart);
+        }
+    }, 7000);
+}
+
+// Create hearts periodically
+setInterval(createFloatingHeart, 800);
+
+// Create initial hearts
+for (let i = 0; i < 5; i++) {
+    setTimeout(createFloatingHeart, i * 200);
+}
