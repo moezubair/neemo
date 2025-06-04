@@ -85,10 +85,33 @@ function createFloatingHeart() {
     }, 7000);
 }
 
-// Create hearts periodically
-setInterval(createFloatingHeart, 800);
+// Create floating ghosts
+function createFloatingGhost() {
+    const ghost = document.createElement('div');
+    ghost.className = 'floating-ghost';
+    ghost.innerHTML = '👻';
+    ghost.style.left = Math.random() * 100 + 'vw';
+    ghost.style.animationDuration = (Math.random() * 4 + 5) + 's';
+    ghost.style.fontSize = (Math.random() * 15 + 20) + 'px';
+    
+    document.body.appendChild(ghost);
+    
+    // Remove ghost after animation completes
+    setTimeout(() => {
+        if (ghost.parentNode) {
+            ghost.parentNode.removeChild(ghost);
+        }
+    }, 9000);
+}
 
-// Create initial hearts
+// Create hearts and ghosts periodically
+setInterval(createFloatingHeart, 800);
+setInterval(createFloatingGhost, 1200);
+
+// Create initial hearts and ghosts
 for (let i = 0; i < 5; i++) {
     setTimeout(createFloatingHeart, i * 200);
+}
+for (let i = 0; i < 3; i++) {
+    setTimeout(createFloatingGhost, i * 400);
 }

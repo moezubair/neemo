@@ -143,6 +143,23 @@ body {
     color: rgba(255, 20, 147, 0.4);
 }
 
+.floating-ghost {
+    position: fixed;
+    font-size: 25px;
+    color: rgba(230, 230, 255, 0.7);
+    pointer-events: none;
+    z-index: -1;
+    animation: float linear infinite;
+}
+
+.floating-ghost:nth-child(odd) {
+    color: rgba(200, 200, 255, 0.6);
+}
+
+.floating-ghost:nth-child(3n) {
+    color: rgba(240, 240, 255, 0.5);
+}
+
 .total-time {
     color: #666;
     font-size: 1rem;
